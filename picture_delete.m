@@ -1,13 +1,13 @@
-%ÌáÈ¡Éñ˜SÀèÃ÷Ó›CG°ü£¬ÅúÁ¿É¾³ı1280*720ÒÔÍâµÄÍ¼Æ¬
+%æ‰¹é‡åˆ é™¤CGåŒ…é‡Œ1280*720ä»¥å¤–çš„å›¾ç‰‡
 clear;clc;
-imagePath = 'F:\PIXIV\visual\';%¸´ÖÆµØÖ·Õ³ÌùºóÒª¼Ó\
+imagePath = 'F:\PIXIV\visual\';%å¤åˆ¶åœ°å€ç²˜è´´åè¦åŠ \
 List=dir(imagePath);
 k=length(List);
-for i=3:k  %²»ÖªÎªºÎÓĞÁ½¸ö¿ÕµÄÊı¾İ£¬ËùÒÔ´Ó3¿ªÊ¼
+for i=3:k  %ä¸çŸ¥ä¸ºä½•æœ‰ä¸¤ä¸ªç©ºçš„æ•°æ®ï¼Œæ‰€ä»¥ä»3å¼€å§‹
     imageFile = strcat(imagePath,List(i).name);
-    image_data{i}=imread(imageFile);%image_data{i}ÊÇ·µ»ØµÄµÚi¸öÍ¼ÏñĞÅÏ¢
+    image_data{i}=imread(imageFile);%image_data{i}æ˜¯è¿”å›çš„ç¬¬iä¸ªå›¾åƒä¿¡æ¯
     sz = size(image_data{i})
-  if sz(1,1)~=720 | sz(1,2)~=1280 %Èç¹û±È½Ïsz~=[720 1280 3]·µ»ØµÄ¾Í²»ÊÇµ¥ÖµÁË
+  if sz(1,1)~=720 | sz(1,2)~=1280 %å¦‚æœæ¯”è¾ƒsz~=[720 1280 3]è¿”å›çš„å°±ä¸æ˜¯å•å€¼äº†
 %     if sz(1,1)~=576 | sz(1,2)~=1024 
         delete (imageFile);
     end
