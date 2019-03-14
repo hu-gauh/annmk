@@ -1,6 +1,6 @@
-%图片批量重命名与格式修改
+%%图片批量重命名与格式修改
 clear;clc;
-files = dir('*.png');%%写成这样需将本程序与图片置于同一目录
+files = dir('*.png'); %正则表达式读图，写成这样需将程序与图片置于同一目录
 len=length(files);
 for i=1:len
     oldname=files(i).name;
