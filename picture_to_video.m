@@ -1,55 +1,55 @@
-%   Éú³ÉÊÓÆµ
+%   ç”Ÿæˆè§†é¢‘
     clear;clc;
-    tic %¼ÆÊ±¿ªÊ¼
-%   imagePath = 'F:\½ğÁµGT\evimage\';   %ÊÖ¶¯¸´ÖÆÍ¼ÏñÂ·¾¶²»·½±ã
-    Path = pwd;                         %pwd¿É»ñÈ¡µ±Ç°¹¤×÷Ä¿Â¼Â·¾¶
-    imagePath = strcat(Path,'\');       %Â·¾¶ºó»¹ÒªÆ´½Ó\²ÅÕıÈ·
-    videoName = '½ğÁµGT.avi';            %±íÊ¾½«Òª´´½¨µÄÊÓÆµÎÄ¼şµÄÃû×Ö  
-%   fps = 2;                             %ÉèÖÃÖ¡ÂÊ£¬¸Ğ¾õ2ºÃµã£¬3ÔÚÍ¼Æ¬ÉÙÊ±ÂÔ¹íĞó
-    X=inputdlg('ÇëÊäÈëÊÓÆµÖ¡ÂÊ (ÍÆ¼öÎª2)');
+    tic %è®¡æ—¶å¼€å§‹
+%   imagePath = 'F:\é‡‘æ‹GT\evimage\';   %æ‰‹åŠ¨å¤åˆ¶å›¾åƒè·¯å¾„ä¸æ–¹ä¾¿
+    Path = pwd;                         %pwdå¯è·å–å½“å‰å·¥ä½œç›®å½•è·¯å¾„
+    imagePath = strcat(Path,'\');       %è·¯å¾„åè¿˜è¦æ‹¼æ¥\æ‰æ­£ç¡®
+    videoName = 'é‡‘æ‹GT.avi';            %è¡¨ç¤ºå°†è¦åˆ›å»ºçš„è§†é¢‘æ–‡ä»¶çš„åå­—  
+%   fps = 2;                             %è®¾ç½®å¸§ç‡ï¼Œæ„Ÿè§‰2å¥½ç‚¹ï¼Œ3åœ¨å›¾ç‰‡å°‘æ—¶ç•¥é¬¼ç•œ
+    X=inputdlg('è¯·è¾“å…¥è§†é¢‘å¸§ç‡ (æ¨èä¸º2)');
     fps=str2num(cell2mat(X));  
-    startFrame = 1;                     %¶¨Òå¿ªÊ¼Ö¡
-    imageFiles = dir('*.png');               %À¨ºÅÄÚÈç¹ûÓÃimagePath£¬numFiles¾Í³¬¹ıÍ¼Æ¬ÊıÁË£¨»á°ÑÆäËüÎÄ¼şËã½øÈ¥£©
-    numFiles=length(imageFiles);        %¼ÆËãÍ¼Æ¬×ÜÊı£¬
-    endFrame = numFiles;                 %×îºóÒ»ÕÅÍ¼Îª½áÊøÖ¡
-%   endFrame = 998;                      %»òÕß×Ô¶¨Òå½áÊøÖ¡£¬µ«²»ÄÜ³¬³öÍ¼Æ¬×ÜÊı  
+    startFrame = 1;                     %å®šä¹‰å¼€å§‹å¸§
+    imageFiles = dir('*.png');               %æ‹¬å·å†…å¦‚æœç”¨imagePathï¼ŒnumFileså°±è¶…è¿‡å›¾ç‰‡æ•°äº†ï¼ˆä¼šæŠŠå…¶å®ƒæ–‡ä»¶ç®—è¿›å»ï¼‰
+    numFiles=length(imageFiles);        %è®¡ç®—å›¾ç‰‡æ€»æ•°ï¼Œ
+    endFrame = numFiles;                 %æœ€åä¸€å¼ å›¾ä¸ºç»“æŸå¸§
+%   endFrame = 998;                      %æˆ–è€…è‡ªå®šä¹‰ç»“æŸå¸§ï¼Œä½†ä¸èƒ½è¶…å‡ºå›¾ç‰‡æ€»æ•°  
     if(exist('videoName','file'))  
-        delete videoName.avi             % ÅĞ¶ÏÏÂÊÇ·ñ´æÔÚÊÓÆµ
+        delete videoName.avi             % åˆ¤æ–­ä¸‹æ˜¯å¦å­˜åœ¨è§†é¢‘
     end  
-    aviobj=VideoWriter(videoName);       %´´½¨Ò»¸öaviÊÓÆµÎÄ¼ş¶ÔÏó£¬¿ªÊ¼Ê±ÆäÎª¿Õ  
+    aviobj=VideoWriter(videoName);       %åˆ›å»ºä¸€ä¸ªaviè§†é¢‘æ–‡ä»¶å¯¹è±¡ï¼Œå¼€å§‹æ—¶å…¶ä¸ºç©º  
     aviobj.FrameRate=fps;   
-    open(aviobj);                        %´ò¿ªÎÄ¼şĞ´ÈëÊÓÆµÊı¾İ
-    for i=startFrame:endFrame            %¶ÁÈëÍ¼Æ¬
-        fileName=sprintf('%04d',i);      %¸ù¾İÎÄ¼şÃû¶ø¶¨£¬ÕâÀïÎÄ¼şÃûÊÇ0001.jpg 0002.jpg
+    open(aviobj);                        %æ‰“å¼€æ–‡ä»¶å†™å…¥è§†é¢‘æ•°æ®
+    for i=startFrame:endFrame            %è¯»å…¥å›¾ç‰‡
+        fileName=sprintf('%04d',i);      %æ ¹æ®æ–‡ä»¶åè€Œå®šï¼Œè¿™é‡Œæ–‡ä»¶åæ˜¯0001.jpg 0002.jpg
         frames=imread([imagePath,fileName,'.png']);  
         writeVideo(aviobj,frames);  
     end  
-    close(aviobj);                          % ¹Ø±Õ´´½¨ÊÓÆµ
-    fprintf('ÊÓÆµÎÄ¼şÉú³ÉÍê±Ï£¬Ö¡ÂÊÎª%d',fps);%Éú³ÉµÄÊÓÆµºÍÍ¼ÏñÔÚÍ¬Ä¿Â¼
-toc  %¼ÆÊ±½áÊø
-disp(['³ÌĞòÔËĞĞÊ±¼ä: ',num2str(toc)]);
+    close(aviobj);                          % å…³é—­åˆ›å»ºè§†é¢‘
+    fprintf('è§†é¢‘æ–‡ä»¶ç”Ÿæˆå®Œæ¯•ï¼Œå¸§ç‡ä¸º%d',fps);%ç”Ÿæˆçš„è§†é¢‘å’Œå›¾åƒåœ¨åŒç›®å½•
+toc  %è®¡æ—¶ç»“æŸ
+disp(['ç¨‹åºè¿è¡Œæ—¶é—´: ',num2str(toc)]);
   
 
 
-%%%ÊÓÆµ·ÖÖ¡³ÉÍ¼Æ¬ 
+%%%è§†é¢‘åˆ†å¸§æˆå›¾ç‰‡ 
 %     clc,clear;
 %     fileName = '1.avi';
 %     obj = VideoReader(fileName);
-%      numFrames = obj.NumberOfFrames;% Ö¡µÄ×ÜÊı
-%      for k = 1 : numFrames% ¶ÁÈ¡Êı¾İ
+%      numFrames = obj.NumberOfFrames;% å¸§çš„æ€»æ•°
+%      for k = 1 : numFrames% è¯»å–æ•°æ®
 %      frame = read(obj,k);
-%      imshow(frame);%ÏÔÊ¾Ö¡
-%      imwrite(frame,strcat(num2str(k),'.jpg'),'jpg');% ±£´æÖ¡
+%      imshow(frame);%æ˜¾ç¤ºå¸§
+%      imwrite(frame,strcat(num2str(k),'.jpg'),'jpg');% ä¿å­˜å¸§
 %      end
-%       %% ¶ÁÈ¡ÊÓÆµ
-%      video_file='***.avi';       %ÕâÀï¿ÉÒÔÊ¹ÓÃ×òÌìĞ¡±à½Ì´ó¼ÒÊ¹ÓÃOPENCV×ÔÅÄµÄÊÓÆµÎªÀıÅ¶
+%       %% è¯»å–è§†é¢‘
+%      video_file='***.avi';       
 %      video=VideoReader(video_file);
-%      frame_number=floor(video.Duration * video.FrameRate);  %»ñÈ¡Ö¡Êı£¬ÎªÏÂÃæÑ­»·×¼±¸
-%      %% ·ÖÀëÍ¼Æ¬
+%      frame_number=floor(video.Duration * video.FrameRate);  %è·å–å¸§æ•°ï¼Œä¸ºä¸‹é¢å¾ªç¯å‡†å¤‡
+%      %% åˆ†ç¦»å›¾ç‰‡
 %       for i=1:frame_number
 %       image_name=strcat('****\', num2str(i));
 %       image_name=strcat(image_name,'.jpg');
-%          I=read(video,i);                       %¶Á³öÍ¼Æ¬
-%          imwrite(I,image_name,'jpg');           %Ğ´Í¼Æ¬
+%          I=read(video,i);                       %è¯»å‡ºå›¾ç‰‡
+%          imwrite(I,image_name,'jpg');           %å†™å›¾ç‰‡
 %          I=[];
 %       end
